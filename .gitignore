@@ -1,0 +1,40 @@
+.DS_Store
+
+# Xcode's local state and generated products
+DerivedData/
+build/
+.build/
+dist/
+**/xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+*.hmap
+*.dSYM/
+*.xcarchive/
+*.log
+*.swp
+*.swo
+*~
+
+# Local assistant/editor state can contain machine paths and conversation data
+.codex/
+.agents/
+.idea/
+
+# Local signing credentials must never enter a public repository
+*.p12
+*.p8
+*.pem
+*.key
+*.mobileprovision
+*.provisionprofile
+.ssh/
+.aws/
+.env
+.env.*
+!.env.example
+
+# Publish built modules separately as a signed/notarized release later
+*.saver/
+*.app/

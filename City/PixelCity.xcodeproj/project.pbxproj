@@ -1,0 +1,255 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000000000000000000000020 /* CitySceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000010 /* CitySceneModel.swift */; };
+		000000000000000000000021 /* CityArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000011 /* CityArtworkView.swift */; };
+		000000000000000000000022 /* PixelCitySaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000012 /* PixelCitySaverView.swift */; };
+		000000000000000000000023 /* PreviewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000013 /* PreviewApp.swift */; };
+		000000000000000000000024 /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000000000000000000000016 /* ScreenSaver.framework */; };
+		000000000000000000000025 /* CitySceneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000010 /* CitySceneModel.swift */; };
+		000000000000000000000026 /* CityArtworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000011 /* CityArtworkView.swift */; };
+		000000000000000000000027 /* PixelCitySaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000012 /* PixelCitySaverView.swift */; };
+		000000000000000000000028 /* ScreenSaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000000000000000000000016 /* ScreenSaver.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		000000000000000000000010 /* CitySceneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySceneModel.swift; sourceTree = "<group>"; };
+		000000000000000000000011 /* CityArtworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityArtworkView.swift; sourceTree = "<group>"; };
+		000000000000000000000012 /* PixelCitySaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelCitySaverView.swift; sourceTree = "<group>"; };
+		000000000000000000000013 /* PreviewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewApp.swift; sourceTree = "<group>"; };
+		000000000000000000000014 /* Preview Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		000000000000000000000015 /* Screen Saver Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		000000000000000000000016 /* ScreenSaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScreenSaver.framework; path = System/Library/Frameworks/ScreenSaver.framework; sourceTree = SDKROOT; };
+		000000000000000000000017 /* PixelCityPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PixelCityPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		000000000000000000000018 /* PixelCity.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PixelCity.saver; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		000000000000000000000031 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (000000000000000000000024 /* ScreenSaver.framework in Frameworks */);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000033 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (000000000000000000000028 /* ScreenSaver.framework in Frameworks */);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		000000000000000000000002 = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000004 /* Shared */,
+				000000000000000000000005 /* Preview */,
+				000000000000000000000006 /* ScreenSaver */,
+				000000000000000000000007 /* Frameworks */,
+				000000000000000000000003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		000000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (000000000000000000000017 /* PixelCityPreview.app */, 000000000000000000000018 /* PixelCity.saver */);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		000000000000000000000004 /* Shared */ = {
+			isa = PBXGroup;
+			children = (000000000000000000000010 /* CitySceneModel.swift */, 000000000000000000000011 /* CityArtworkView.swift */, 000000000000000000000012 /* PixelCitySaverView.swift */);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		000000000000000000000005 /* Preview */ = {
+			isa = PBXGroup;
+			children = (000000000000000000000013 /* PreviewApp.swift */, 000000000000000000000014 /* Preview Info.plist */);
+			path = Preview;
+			sourceTree = "<group>";
+		};
+		000000000000000000000006 /* ScreenSaver */ = {
+			isa = PBXGroup;
+			children = (000000000000000000000015 /* Screen Saver Info.plist */);
+			path = ScreenSaver;
+			sourceTree = "<group>";
+		};
+		000000000000000000000007 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (000000000000000000000016 /* ScreenSaver.framework */);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		000000000000000000000040 /* PixelCityPreview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000061 /* Build configuration list for PBXNativeTarget "PixelCityPreview" */;
+			buildPhases = (000000000000000000000030 /* Sources */, 000000000000000000000031 /* Frameworks */);
+			buildRules = ();
+			dependencies = ();
+			name = PixelCityPreview;
+			productName = PixelCityPreview;
+			productReference = 000000000000000000000017 /* PixelCityPreview.app */;
+			productType = "com.apple.product-type.application";
+		};
+		000000000000000000000041 /* PixelCity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 000000000000000000000062 /* Build configuration list for PBXNativeTarget "PixelCity" */;
+			buildPhases = (000000000000000000000032 /* Sources */, 000000000000000000000033 /* Frameworks */);
+			buildRules = ();
+			dependencies = ();
+			name = PixelCity;
+			productName = PixelCity;
+			productReference = 000000000000000000000018 /* PixelCity.saver */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		000000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					000000000000000000000040 = {CreatedOnToolsVersion = 27.0; };
+					000000000000000000000041 = {CreatedOnToolsVersion = 27.0; };
+				};
+			};
+			buildConfigurationList = 000000000000000000000060 /* Build configuration list for PBXProject */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (en, Base);
+			mainGroup = 000000000000000000000002;
+			productRefGroup = 000000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (000000000000000000000040 /* PixelCityPreview */, 000000000000000000000041 /* PixelCity */);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		000000000000000000000030 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000020 /* CitySceneModel.swift in Sources */,
+				000000000000000000000021 /* CityArtworkView.swift in Sources */,
+				000000000000000000000022 /* PixelCitySaverView.swift in Sources */,
+				000000000000000000000023 /* PreviewApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		000000000000000000000032 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000025 /* CitySceneModel.swift in Sources */,
+				000000000000000000000026 /* CityArtworkView.swift in Sources */,
+				000000000000000000000027 /* PixelCitySaverView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		000000000000000000000050 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)");
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		000000000000000000000051 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		000000000000000000000052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Preview/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks");
+				PRODUCT_BUNDLE_IDENTIFIER = com.thepigeonking.vibedrivenscreensavers.PixelCityPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		000000000000000000000053 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Preview/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks");
+				PRODUCT_BUNDLE_IDENTIFIER = com.thepigeonking.vibedrivenscreensavers.PixelCityPreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		000000000000000000000054 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ScreenSaver/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@loader_path/../Frameworks");
+				MACH_O_TYPE = mh_bundle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thepigeonking.vibedrivenscreensavers.PixelCity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Debug;
+		};
+		000000000000000000000055 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = ScreenSaver/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@loader_path/../Frameworks");
+				MACH_O_TYPE = mh_bundle;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thepigeonking.vibedrivenscreensavers.PixelCity;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = saver;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		000000000000000000000060 /* Build configuration list for PBXProject */ = {isa = XCConfigurationList; buildConfigurations = (000000000000000000000050 /* Debug */, 000000000000000000000051 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		000000000000000000000061 /* Build configuration list for PBXNativeTarget "PixelCityPreview" */ = {isa = XCConfigurationList; buildConfigurations = (000000000000000000000052 /* Debug */, 000000000000000000000053 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		000000000000000000000062 /* Build configuration list for PBXNativeTarget "PixelCity" */ = {isa = XCConfigurationList; buildConfigurations = (000000000000000000000054 /* Debug */, 000000000000000000000055 /* Release */); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = 000000000000000000000001 /* Project object */;
+}
