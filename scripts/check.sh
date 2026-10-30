@@ -3,7 +3,7 @@ set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
 
 if [[ "${1:-}" == "--help" || "$#" -gt 1 ]]; then
-  printf 'Usage: %s [all|terminal|pacman|city|neon]\n' "$0"
+  printf 'Usage: %s [all|terminal|pacman|city|neon|abyss|hadal|orbit|island]\n' "$0"
   printf 'Runs model checks and loads Release .saver bundles if they have been built.\n'
   exit 0
 fi
@@ -19,6 +19,10 @@ for key in "${project_keys[@]}"; do
     pacman) sources=(Pacman/Shared/MazeGame.swift Pacman/Tools/TestMazeGame.swift) ;;
     city) sources=(City/Shared/CitySceneModel.swift City/Tools/TestCityScene.swift) ;;
     neon) sources=(Neon/Shared/NeonAnimationModel.swift Neon/Tools/TestNeonAnimation.swift) ;;
+    abyss) sources=(Abyss/Shared/AbyssSceneModel.swift Abyss/Tools/TestAbyssScene.swift) ;;
+    hadal) sources=(Hadal/Shared/HadalSceneModel.swift Hadal/Tools/TestHadalScene.swift) ;;
+    orbit) sources=(Orbit/Shared/OrbitSceneModel.swift Orbit/Tools/TestOrbitScene.swift) ;;
+    island) sources=(Island/Shared/IslandSceneModel.swift Island/Tools/TestIslandScene.swift) ;;
   esac
   printf 'Checking %s model...\n' "$key"
   xcrun swiftc "${compiler_arguments[@]}" "${sources[@]}" -o "build/checks/test-$key"

@@ -1,0 +1,55 @@
+import AppKit
+import Foundation
+
+/// Fifty seconds over the protected micro-city: flares, charge arrival and retreat.
+@main
+enum RenderHadalAnimation {
+    static func main() throws {
+        let output = URL(fileURLWithPath: CommandLine.arguments.dropFirst().first
+                             ?? "build/hadal-animation-frames", isDirectory: true)
+        let asset = URL(fileURLWithPath: "Hadal/Resources/hadal-city-seabed.png")
+        guard FileManager.default.fileExists(atPath: asset.path) else {
+            throw failure(1, "Run from the repository root with the bundled artwork present")
+        }
+        try FileManager.default.createDirectory(at: output, withIntermediateDirectories: true)
+        let width = 960, height = 600
+        let frame = CGRect(x: 0, y: 0, width: width, height: height)
+        guard let saver = HadalOutpostSaverView(frame: frame, isPreview: false) else {
+            throw failure(2, "Cannot construct HadalOutpostSaverView")
+        }
+        let artwork = saver.artwork
+        artwork.assetURLOverride = asset
+        artwork.model = HadalSceneModel(seed: 2026)
+        artwork.model.startEncounter(kind: .maw)
+        for _ in 0..<40 { artwork.model.step(seconds: 0.25) }
+        for index in 0..<600 {
+            try autoreleasepool {
+                if index > 0 { artwork.model.step(seconds: 1.0 / 12.0) }
+                guard let bitmap = NSBitmapImageRep(bitmapDataPlanes: nil,
+                                                    pixelsWide: width, pixelsHigh: height,
+                                                    bitsPerSample: 8, samplesPerPixel: 4,
+                                                    hasAlpha: true, isPlanar: false,
+                                                    colorSpaceName: .deviceRGB,
+                                                    bytesPerRow: 0, bitsPerPixel: 0),
+                      let context = NSGraphicsContext(bitmapImageRep: bitmap) else {
+                    throw failure(3, "Cannot allocate the output bitmap")
+                }
+                NSGraphicsContext.saveGraphicsState()
+                NSGraphicsContext.current = context
+                artwork.draw(artwork.bounds)
+                context.flushGraphics()
+                NSGraphicsContext.restoreGraphicsState()
+                guard let png = bitmap.representation(using: .png, properties: [:]) else {
+                    throw failure(4, "Cannot encode PNG")
+                }
+                try png.write(to: output.appendingPathComponent(String(format: "frame-%03d.png", index)))
+            }
+        }
+        print("Rendered 600 frames at 12 fps to \(output.path)")
+    }
+
+    private static func failure(_ code: Int, _ description: String) -> NSError {
+        NSError(domain: "RenderHadalAnimation", code: code,
+                userInfo: [NSLocalizedDescriptionKey: description])
+    }
+}

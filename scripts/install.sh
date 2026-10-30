@@ -3,7 +3,7 @@ set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
 
 if [[ "${1:-}" == "--help" || "$#" -gt 1 ]]; then
-  printf 'Usage: %s [all|terminal|pacman|city|neon]\n' "$0"
+  printf 'Usage: %s [all|terminal|pacman|city|neon|abyss|hadal|orbit|island]\n' "$0"
   printf 'Copies previously built Release modules to ~/Library/Screen Savers.\n'
   exit 0
 fi

@@ -10,14 +10,18 @@ configure_project() {
     pacman) project_file="Pacman/Pacman.xcodeproj"; product_name="AutoPacman" ;;
     city) project_file="City/PixelCity.xcodeproj"; product_name="PixelCity" ;;
     neon) project_file="Neon/NeonDistrict.xcodeproj"; product_name="NeonDistrict" ;;
-    *) printf 'Unknown project: %s. Choose terminal, pacman, city, neon or all.\n' "$saver_key" >&2; return 2 ;;
+    abyss) project_file="Abyss/AbyssStation.xcodeproj"; product_name="AbyssStation" ;;
+    hadal) project_file="Hadal/HadalOutpost.xcodeproj"; product_name="HadalOutpost" ;;
+    orbit) project_file="Orbit/OrbitalStation.xcodeproj"; product_name="OrbitalStation" ;;
+    island) project_file="Island/LivingIsland.xcodeproj"; product_name="LivingIsland" ;;
+    *) printf 'Unknown project: %s. Choose terminal, pacman, city, neon, abyss, hadal, orbit, island or all.\n' "$saver_key" >&2; return 2 ;;
   esac
   derived_path="$repo_root/build/$saver_key"
 }
 
 select_projects() {
   if [[ "$1" == "all" ]]; then
-    project_keys=(terminal pacman city neon)
+    project_keys=(terminal pacman city neon abyss hadal orbit island)
   else
     configure_project "$1"
     project_keys=("$1")

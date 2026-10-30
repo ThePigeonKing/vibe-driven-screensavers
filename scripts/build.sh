@@ -3,7 +3,7 @@ set -euo pipefail
 source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
 
 if [[ "${1:-}" == "--help" || "$#" -gt 2 ]]; then
-  printf 'Usage: %s [all|terminal|pacman|city|neon] [saver|preview]\n' "$0"
+  printf 'Usage: %s [all|terminal|pacman|city|neon|abyss|hadal|orbit|island] [saver|preview]\n' "$0"
   exit 0
 fi
 selection="${1:-all}"

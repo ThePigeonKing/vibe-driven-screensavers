@@ -1,6 +1,6 @@
 # Vibe Driven Screensavers
 
-Four native macOS screen savers, with a separate Xcode preview app for each scene. Every preview uses the same Swift drawing and animation code as its installable `.saver` module.
+Eight native macOS screen savers, with a separate Xcode preview app for each scene. Every preview uses the same Swift drawing and animation code as its installable `.saver` module.
 
 [Русская инструкция](README.ru.md) · [MIT license](LICENSE)
 
@@ -14,6 +14,10 @@ The scenes run locally using AppKit and Apple's [Screen Saver framework](https:/
 | **Auto Pacman** / Самоиграющий лабиринт | Autonomous pixel arcade, four ghost personalities, connected random mazes and victory/defeat screens | `pacman` |
 | **Pixel City** / Живой пиксельный город | A distant Moscow City inspired skyline, independent windows, weather, trains, occasional cars and a station clock | `city` |
 | **Neon District** / Неоновый квартал | Cyberpunk pixel artwork, animated holographic billboards, a passing metro, car lighting and exhaust | `neon` |
+| **Abyss Station** / Станция «Бездна» | An isolated deep-ocean habitat, sweeping searchlights and immense Lovecraftian creatures emerging from the dark | `abyss` |
+| **Hadal Outpost** / Форпост «Надир» | A substantial undersea micro-city on rocky seabed, a pressure shield and five giant creatures approaching from above | `hadal` |
+| **Orbital Station** / Орбитальная станция | A detailed wheel habitat above a vast planet, docking ships, inhabited lights and slow orbital motion | `orbit` |
+| **Living Island** / Самостроящийся мир | An isometric island castle-town that gradually builds, dismantles and replaces its architecture | `island` |
 
 ### Alarm Terminal
 
@@ -47,6 +51,38 @@ A layered neon city and a parked futuristic car, with independently changing ani
 
 [Scene guide](Neon/README.md) · [Artwork provenance and generation prompt](Neon/Resources/ARTWORK.md)
 
+### Abyss Station
+
+A tiny research station clings to a basalt ledge over a bottomless chasm. Slow searchlights, marine snow, independent window lighting and rising bubbles give the scene life. An ancient tentacled creature and an enormous leviathan appear on long schedules, gradually emerge from the murk and disappear. Original creature sprites deform continuously in code. The atmosphere draws on deep-ocean isolation and cosmic horror; no assets from Subnautica or other games are used.
+
+![Abyss Station animation](docs/abyss-station-preview.gif)
+
+[Scene guide](Abyss/README.md) · [Artwork provenance and prompts](Abyss/Resources/ARTWORK.md)
+
+### Hadal Outpost
+
+A substantial underwater micro-city rests on a detailed rocky seabed beneath an animated pressure field. Towers, districts, bridges, foundations and pipelines form a coherent settlement. All five creature species approach through the water above it; the renderer excludes the protected city and seabed from their anatomy. Searchlights, flares and defensive charges reveal and repel the creatures. The original Abyss Station remains available independently.
+
+![Hadal Outpost defence cycle](docs/hadal-outpost-preview.gif)
+
+[Scene guide and species selection](Hadal/README.md) · [Artwork and references](Hadal/Resources/ARTWORK.md)
+
+### Orbital Station
+
+A detailed wheel habitat floats over a vast inhabited planet with clouds, twilight and night-side lights. Ships approach, dock, wait and depart. Slow station movement, ring traffic and navigation lights keep the view alive.
+
+![Orbital Station animation](docs/orbital-station-preview.gif)
+
+[Scene guide](Orbit/README.md) · [Artwork provenance](Orbit/Resources/ARTWORK.md)
+
+### Living Island
+
+A procedural isometric island grows into a castle-town. Houses, terraces, gardens, bridges and towers appear in stages; individual buildings are dismantled and replaced while the island remains inhabited. Each launch uses a new seed.
+
+![Living Island animation](docs/living-island-preview.gif)
+
+[Scene guide](Island/README.md)
+
 ## Requirements
 
 - A Mac and **full Xcode** with a macOS SDK. Command Line Tools alone cannot build these Xcode projects.
@@ -74,6 +110,10 @@ Open one of these projects, select the **preview scheme** and **My Mac** in the 
 | [Pacman/Pacman.xcodeproj](Pacman/Pacman.xcodeproj) | `AutoPacmanPreview` | `AutoPacman` / `AutoPacman.saver` |
 | [City/PixelCity.xcodeproj](City/PixelCity.xcodeproj) | `PixelCityPreview` | `PixelCity` / `PixelCity.saver` |
 | [Neon/NeonDistrict.xcodeproj](Neon/NeonDistrict.xcodeproj) | `NeonDistrictPreview` | `NeonDistrict` / `NeonDistrict.saver` |
+| [Abyss/AbyssStation.xcodeproj](Abyss/AbyssStation.xcodeproj) | `AbyssStationPreview` | `AbyssStation` / `AbyssStation.saver` |
+| [Hadal/HadalOutpost.xcodeproj](Hadal/HadalOutpost.xcodeproj) | `HadalOutpostPreview` | `HadalOutpost` / `HadalOutpost.saver` |
+| [Orbit/OrbitalStation.xcodeproj](Orbit/OrbitalStation.xcodeproj) | `OrbitalStationPreview` | `OrbitalStation` / `OrbitalStation.saver` |
+| [Island/LivingIsland.xcodeproj](Island/LivingIsland.xcodeproj) | `LivingIslandPreview` | `LivingIsland` / `LivingIsland.saver` |
 
 For example:
 
@@ -93,15 +133,18 @@ The preview scheme launches a normal resizable window. The saver scheme builds a
 | `⌘3`…`⌘6` in Alarm Terminal | Change palette; saved for the installed saver too |
 | `⌘0` in Pixel City | Resume natural weather changes |
 | `⌘3`, `⌘4`, `⌘5` in Pixel City | Preview clear, cloudy or rainy weather |
+| `⌘3`…`⌘7` in Hadal Outpost | Begin an encounter with one of five species |
+| `⌘0` in Hadal Outpost | Resume the natural encounter cycle |
+| `⌘3` in Living Island | Generate a new island |
 
 Window resizing also works by dragging its edges. Pixel City's weather overrides apply to the preview only. Some menu labels and saver display names are currently in Russian.
 
 ## Build from the command line
 
-The helper scripts accept `terminal`, `pacman`, `city`, `neon` or `all`.
+The helper scripts accept `terminal`, `pacman`, `city`, `neon`, `abyss`, `hadal`, `orbit`, `island` or `all`.
 
 ```sh
-# Build all four universal Release .saver modules.
+# Build all eight universal Release .saver modules.
 ./scripts/build.sh all
 
 # Or build one scene.
@@ -112,7 +155,7 @@ The helper scripts accept `terminal`, `pacman`, `city`, `neon` or `all`.
 open build/neon/Build/Products/Debug/NeonDistrictPreview.app
 ```
 
-`./scripts/build.sh all preview` builds all four preview apps. Every helper also supports `--help`.
+`./scripts/build.sh all preview` builds all eight preview apps. Every helper also supports `--help`.
 
 ### Choosing Xcode
 
@@ -145,6 +188,10 @@ DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcodebuild \
 | `pacman` | `build/pacman/Build/Products/Release/AutoPacman.saver` |
 | `city` | `build/city/Build/Products/Release/PixelCity.saver` |
 | `neon` | `build/neon/Build/Products/Release/NeonDistrict.saver` |
+| `abyss` | `build/abyss/Build/Products/Release/AbyssStation.saver` |
+| `hadal` | `build/hadal/Build/Products/Release/HadalOutpost.saver` |
+| `orbit` | `build/orbit/Build/Products/Release/OrbitalStation.saver` |
+| `island` | `build/island/Build/Products/Release/LivingIsland.saver` |
 
 Preview apps are in the same project's `Build/Products/Debug/` directory. Xcode's Run button may use its own DerivedData location; the install helper expects the paths produced by `scripts/build.sh`.
 
@@ -153,7 +200,7 @@ Preview apps are in the same project's `Build/Products/Debug/` directory. Xcode'
 Close System Settings before installing or updating. After building:
 
 ```sh
-# Install all four for the current macOS user.
+# Install all eight for the current macOS user.
 ./scripts/install.sh all
 
 # Or install only one.
@@ -197,6 +244,13 @@ Pacman/                     Auto Pacman project and scene guide
 City/                       Pixel City project and scene guide
 Neon/                       Neon District project and scene guide
   Resources/                Bundled artwork and its provenance
+Abyss/                      Abyss Station project and scene guide
+  Resources/                Background, transparent creatures and provenance
+Hadal/                      Hadal Outpost project and scene guide
+  Resources/                City/seabed painting and five creature sprites
+Orbit/                      Orbital Station project and scene guide
+  Resources/                Planet background and transparent station
+Island/                     Procedural Living Island project and scene guide
 
 Each scene directory contains:
   *.xcodeproj/              Preview app + saver targets, shared schemes
@@ -226,6 +280,12 @@ Each project is independent. Adding or editing one scene does not require rebuil
 | Windows, weather, trains and road traffic | [City/Shared/CitySceneModel.swift](City/Shared/CitySceneModel.swift) |
 | Neon overlays, billboard geometry and smoke | [Neon/Shared/NeonArtworkView.swift](Neon/Shared/NeonArtworkView.swift) |
 | Neon billboard and metro schedules | [Neon/Shared/NeonAnimationModel.swift](Neon/Shared/NeonAnimationModel.swift) |
+| Abyss creature movement, searchlights and underwater particles | [Abyss/Shared/AbyssArtworkView.swift](Abyss/Shared/AbyssArtworkView.swift) |
+| Abyss encounter schedules and station lighting | [Abyss/Shared/AbyssSceneModel.swift](Abyss/Shared/AbyssSceneModel.swift) |
+| Hadal lighting masks, central composition and creature deformation | [Hadal/Shared/HadalArtworkView.swift](Hadal/Shared/HadalArtworkView.swift) |
+| Hadal encounters, flares, charges and retreat timing | [Hadal/Shared/HadalSceneModel.swift](Hadal/Shared/HadalSceneModel.swift) |
+| Orbital ship schedules and docking | [Orbit/Shared/OrbitSceneModel.swift](Orbit/Shared/OrbitSceneModel.swift) |
+| Island generation and construction cycles | [Island/Shared/IslandSceneModel.swift](Island/Shared/IslandSceneModel.swift) |
 
 Edit `Shared/`, run the preview, check compact and full-screen layouts, then rebuild and reinstall the saver. The wrappers in `Shared/*SaverView.swift` handle the macOS animation lifecycle. The two clock scenes use the current local time; fixed clocks in snapshot tools are only for reproducible pictures.
 
@@ -241,7 +301,7 @@ To add a scene, follow an existing project's two-target layout. Give a new saver
 ./scripts/check.sh pacman
 ```
 
-Checks cover telemetry bounds and timing, connected maze generation and autonomous outcomes, long city/weather/traffic simulations, and neon billboard/metro schedules including recovery after time jumps. Bundle checks load each built module and verify that its principal class derives from `ScreenSaverView`. Build modules first to include this part of the check; otherwise it is explicitly skipped.
+Checks cover telemetry bounds and timing, connected maze generation and autonomous outcomes, long city/weather/traffic simulations, neon billboard/metro schedules, abyssal encounters and lighting, and Hadal defence causality (flares, charge arrival and retreat), including recovery after time jumps. Bundle checks load each built module and verify that its principal class derives from `ScreenSaverView`. Build modules first to include this part of the check; otherwise it is explicitly skipped.
 
 Each scene's `Tools/` also contains renderers for screenshots and animation frames. For example, render the terminal in four palettes at five aspect ratios:
 
@@ -261,7 +321,7 @@ Model checks, bundle loading and offscreen rendering do not replace checking the
 
 ## What belongs in Git
 
-Commit Swift source, Xcode projects and **shared** schemes, docs, and required artwork. `Neon/Resources/neon-district.png` is a source asset needed to build both targets. The supplied game screenshot used as its visual reference is not included.
+Commit Swift source, Xcode projects and **shared** schemes, docs, and required artwork. Required PNGs live in `Neon/Resources/`, `Abyss/Resources/`, `Hadal/Resources/` and `Orbit/Resources/`. Both targets of each scene include its active assets. Hadal's former small station sprite is retained as an unused source asset; its builds use `hadal-city-seabed.png`. The supplied game screenshot used as Neon District's visual reference is not included.
 
 [.gitignore](.gitignore) excludes build products, `.app`/`.saver` bundles, debug symbols, archives, logs, Xcode `xcuserdata`, editor/assistant state, `.env` files, signing keys and provisioning profiles. Keep credentials and your private signing configuration outside the repository. An ignore rule cannot remove something already committed: review `git diff --cached` before publishing.
 
@@ -271,4 +331,4 @@ For a downloadable binary release, package the `.saver` separately from source. 
 
 The repository is available under the [MIT license](LICENSE). Keep the copyright and license notice when redistributing it.
 
-Alarm Terminal, Auto Pacman and Pixel City draw their visuals in code. Neon District uses AI-generated artwork; its provenance and exact prompt are documented in [ARTWORK.md](Neon/Resources/ARTWORK.md). No original game graphics, logos or reference screenshots are bundled. This is an independent hobby project, with no affiliation with the games or other works that inspired it. The license does not grant rights to third-party trademarks.
+Alarm Terminal, Auto Pacman, Pixel City and Living Island draw their visuals in code. Neon District, Abyss Station, Hadal Outpost and Orbital Station use AI-generated artwork; provenance and exact prompts are documented in [Neon/Resources/ARTWORK.md](Neon/Resources/ARTWORK.md), [Abyss/Resources/ARTWORK.md](Abyss/Resources/ARTWORK.md), [Hadal/Resources/ARTWORK.md](Hadal/Resources/ARTWORK.md) and [Orbit/Resources/ARTWORK.md](Orbit/Resources/ARTWORK.md). No original game graphics, logos or reference screenshots are bundled. This is an independent hobby project, with no affiliation with the games or other works that inspired it. The license does not grant rights to third-party trademarks.

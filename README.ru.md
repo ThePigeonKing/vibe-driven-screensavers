@@ -1,6 +1,6 @@
 # Vibe Driven Screensavers
 
-Четыре настоящие заставки macOS в формате `.saver`. Для каждой есть отдельное приложение предпросмотра в Xcode с тем же кодом рисования и анимации. Во время работы не нужны сеть, аккаунты, API-ключи или внешние зависимости.
+Восемь настоящих заставок macOS в формате `.saver`. Для каждой есть отдельное приложение предпросмотра в Xcode с тем же кодом рисования и анимации. Во время работы не нужны сеть, аккаунты, API-ключи или внешние зависимости.
 
 [English README](README.md) · [Лицензия MIT](LICENSE)
 
@@ -12,6 +12,10 @@
 | [Самоиграющий лабиринт](Pacman/README.md) | Пиксельная аркада, четыре разных призрака, случайные связные карты, `GAME OVER` и `YOU WON` | `pacman` |
 | [Живой пиксельный город](City/README.md) | Панорама по мотивам Москва-Сити, окна, погода, поезда, машины и часы на станции | `city` |
 | [Неоновый квартал](Neon/README.md) | Киберпанковая сцена, анимированные голограммы, поезд, подсветка автомобиля и дым | `neon` |
+| [Станция «Бездна»](Abyss/README.md) | Изолированная станция над провалом, медленные прожекторы и огромные лавкрафтовские существа в тёмной воде | `abyss` |
+| [Форпост «Надир»](Hadal/README.md) | Подводный микрогород на подробном морском дне, силовой купол и пять видов существ, подходящих сверху | `hadal` |
+| [Орбитальная станция](Orbit/README.md) | Подробный орбитальный комплекс над планетой, корабли со стыковкой и огни жилых модулей | `orbit` |
+| [Самостроящийся мир](Island/README.md) | Остров с городом-замком, который постепенно строится и меняет архитектуру | `island` |
 
 Галерея находится в [основном README](README.md#the-collection). Все проекты независимы: можно собрать и установить только понравившийся.
 
@@ -38,15 +42,19 @@ cd vibe-driven-screensavers
 | [Pacman/Pacman.xcodeproj](Pacman/Pacman.xcodeproj) | `AutoPacmanPreview` | `AutoPacman.saver` |
 | [City/PixelCity.xcodeproj](City/PixelCity.xcodeproj) | `PixelCityPreview` | `PixelCity.saver` |
 | [Neon/NeonDistrict.xcodeproj](Neon/NeonDistrict.xcodeproj) | `NeonDistrictPreview` | `NeonDistrict.saver` |
+| [Abyss/AbyssStation.xcodeproj](Abyss/AbyssStation.xcodeproj) | `AbyssStationPreview` | `AbyssStation.saver` |
+| [Hadal/HadalOutpost.xcodeproj](Hadal/HadalOutpost.xcodeproj) | `HadalOutpostPreview` | `HadalOutpost.saver` |
+| [Orbit/OrbitalStation.xcodeproj](Orbit/OrbitalStation.xcodeproj) | `OrbitalStationPreview` | `OrbitalStation.saver` |
+| [Island/LivingIsland.xcodeproj](Island/LivingIsland.xcodeproj) | `LivingIslandPreview` | `LivingIsland.saver` |
 
 Схема без `Preview` собирает модуль заставки; отдельного запускаемого приложения у неё нет.
 
-У всех предпросмотров окно можно растягивать. `⌘1` — маленький предпросмотр 420×263, `⌘2` — обычное окно, `⌃⌘F` — полный экран. В терминале `⌘3`…`⌘6` меняют палитру; она сохраняется и для установленной заставки. В городе `⌘0` возвращает естественную погоду, `⌘3`/`⌘4`/`⌘5` включают ясную ночь/облачность/дождь для предпросмотра.
+У всех предпросмотров окно можно растягивать. `⌘1` — маленький предпросмотр 420×263, `⌘2` — обычное окно, `⌃⌘F` — полный экран. В терминале `⌘3`…`⌘6` меняют палитру; она сохраняется и для установленной заставки. В городе `⌘0` возвращает естественную погоду, `⌘3`/`⌘4`/`⌘5` включают ясную ночь/облачность/дождь для предпросмотра. В «Самостроящемся мире» `⌘3` создаёт новый остров.
 
 ## Собрать
 
 ```sh
-# Все четыре универсальных модуля .saver.
+# Все восемь универсальных модулей .saver.
 ./scripts/build.sh all
 
 # Только один модуль.
@@ -57,7 +65,7 @@ cd vibe-driven-screensavers
 open build/neon/Build/Products/Debug/NeonDistrictPreview.app
 ```
 
-Вместо `neon` можно указать `terminal`, `pacman` или `city`; `all preview` собирает все приложения предпросмотра. Скрипты поддерживают `--help`.
+Вместо `neon` можно указать `terminal`, `pacman`, `city`, `abyss`, `hadal`, `orbit` или `island`; `all preview` собирает все приложения предпросмотра. Скрипты поддерживают `--help`.
 
 Если `xcode-select` указывает на Command Line Tools, скрипты автоматически используют `/Applications/Xcode.app`, когда он установлен. Глобальная настройка developer directory не меняется. Для другого пути задайте `DEVELOPER_DIR`:
 
@@ -106,7 +114,7 @@ xattr -dr com.apple.quarantine "$HOME/Library/Screen Savers/NeonDistrict.saver"
 
 ## Структура и изменения
 
-У каждого проекта в `Terminal/`, `Pacman/`, `City/` и `Neon/` одинаковая структура:
+У каждого проекта в `Terminal/`, `Pacman/`, `City/`, `Neon/`, `Abyss/`, `Hadal/`, `Orbit/` и `Island/` одинаковая структура:
 
 - `Shared/` — сцена, модель анимации и обёртка `ScreenSaverView`;
 - `Preview/` — приложение предпросмотра, окно и меню;
@@ -114,11 +122,13 @@ xattr -dr com.apple.quarantine "$HOME/Library/Screen Savers/NeonDistrict.saver"
 - `Tools/` — проверки модели, рендер снимков и кадров;
 - `*.xcodeproj/` — две цели и общие схемы Xcode.
 
-В `Neon/Resources/` находится обязательная фоновая иллюстрация и [история её создания](Neon/Resources/ARTWORK.md). В корне: `scripts/` — общие команды, `Tools/VerifySaverBundle.swift` — загрузка модуля для проверки, `docs/` — галерея, `build/` — игнорируемые результаты сборки. Терминал перенесён с корня в `Terminal/` для единой структуры.
+Обязательные иллюстрации и точные запросы их создания находятся в `Resources/` соответствующей сцены: [Neon](Neon/Resources/ARTWORK.md), [Abyss](Abyss/Resources/ARTWORK.md), [Hadal](Hadal/Resources/ARTWORK.md) и [Orbit](Orbit/Resources/ARTWORK.md). Остров рисуется процедурно. В корне: `scripts/` — общие команды, `Tools/VerifySaverBundle.swift` — загрузка модуля для проверки, `docs/` — галерея, `build/` — игнорируемые результаты сборки. Терминал перенесён с корня в `Terminal/` для единой структуры.
 
 Для визуальных изменений редактируйте `Shared/`, смотрите результат через Run и затем пересобирайте `.saver`. Палитры терминала — в `TerminalTheme.swift`; логика игры — в `MazeGame.swift`; погода и транспорт — в `CitySceneModel.swift`; расписания неоновых экранов и поездов — в `NeonAnimationModel.swift`. Файлы `*ArtworkView.swift` отвечают за рисование. [Подробная карта исходников и добавление новой сцены](README.md#customize-or-extend-a-scene).
 
 ## Проверки
+
+У «Надира» есть отдельный предпросмотр: `⌘3`…`⌘7` выбирают вид существа, `⌘0` возвращает естественный цикл. В версии 0.2.0 город стоит на морском дне под защитным полем, все существа подходят сверху. Предыдущая «Бездна» сохранена отдельно. [Подробности](Hadal/README.md).
 
 ```sh
 ./scripts/check.sh all
@@ -136,4 +146,4 @@ xattr -dr com.apple.quarantine "$HOME/Library/Screen Savers/NeonDistrict.saver"
 
 Готовые бинарные модули можно распространять отдельным выпуском. Для подписи с проверяемым удостоверением разработчика и нотариализации используйте [Developer ID](https://developer.apple.com/developer-id/) и [инструкцию Apple](https://developer.apple.com/documentation/security/notarizing-macos-software-before-distribution); секреты подписи храните вне репозитория.
 
-Репозиторий распространяется по [MIT](LICENSE): сохраняйте уведомление об авторстве и текст лицензии. Иллюстрация Neon District создана генерацией изображений; исходный игровой референс не публикуется. Проект независимый и не связан с авторами вдохновивших его игр. Лицензия не предоставляет прав на чужие товарные знаки.
+Репозиторий распространяется по [MIT](LICENSE): сохраняйте уведомление об авторстве и текст лицензии. Иллюстрации Neon District, Abyss Station, Hadal Outpost и Orbital Station созданы генерацией изображений; исходный игровой референс не публикуется. Living Island рисуется процедурно. Проект независимый и не связан с авторами вдохновивших его игр. Лицензия не предоставляет прав на чужие товарные знаки.
